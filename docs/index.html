@@ -9,6 +9,7 @@
     <script type="text/javascript">
     // ------------------------------------------------
     // FIXME THESE VALUES SHOULD BE CUSTOMISED
+    var SLACK_TEAM_URL = "https://weave-community.slack.com/";
     var AWS_LAMDBA_URL = "https://gkcvbjlmx0.execute-api.us-west-2.amazonaws.com/prod/invite";
     var SLACK_CHANNEL_IDS = "";
     //
@@ -65,8 +66,14 @@
           if (resp.ok) {
             $( "#errorMessage" ).text('Now check your email!');
           }
+          else if (resp.error == 'already_in_team') {
+            $( "#errorMessage" ).html("You've already joined this team! Please log in at <a href=\"" + SLACK_TEAM_URL + "\">" + SLACK_TEAM_URL + "</a>");
+          }
+          else if (resp.error == 'already_invited') {
+            $( "#errorMessage" ).html("You're already invited! Please check your email.");
+          }
           else {
-            $( "#errorMessage" ).text("Error submitting '" + resp.error);
+            $( "#errorMessage" ).text("Error submitting '" + resp.error + "'");
           }
         }
       });
@@ -109,8 +116,9 @@
             data: JSON.stringify(json),
             error: function (xhr, errStatus) {
               console.log('ERROR:' + JSON.stringify(xhr));
+
               $( "#inputEmail" ).attr( "style", "border: 1px solid #f00" )
-              $( "#errorMessage" ).text( "Error! '" + xhr.error)
+              $( "#errorMessage" ).text( "Error! '" + xhr.error + "'")
             }
           });
         }
