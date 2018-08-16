@@ -37,7 +37,9 @@
         <p>
           <input class="btn btn-md btn-primary btn-block" type="submit" value="Join Slack">
         </p>
-        <p id="slackDomain"></p>
+        <p>
+          Already a member? <a id="slackLoginLink">Login here.</a>
+        </p>
         <p id="errorMessage" style="color: #f00"></p>
       </form>
     </div>
@@ -78,7 +80,7 @@
         }
       });
 
-      $( "#slackDomain" ).html( '<a href=\"\"></a>' );
+      $( "#slackLoginLink" ).attr("href", SLACK_TEAM_URL);
       // email input form handler
       $( "#inputEmail" ).on( "focus", function() {
         $( "#inputEmail" ).attr( "style", "" )
