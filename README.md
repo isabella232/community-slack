@@ -16,10 +16,8 @@ Then:
    - e.g. for prod deployment in London region use `npm run deploy -- --region eu-west-2 --stage prod`
 
 Once you have deployed the Lambda stack, you can deploy content of docs to Github pages (or elsewhere).
-When you run `npm run deploy`, it should generate `docs/config.js` which contains configuration variables.
-The generator script is `generate-page-config.sh`.
+After you run `npm run deploy`, you should run `./generate-page-config.sh` and it will generate `docs/config.js`
+which will contains configuration variables. You want to track `docs/config.js` along with any other changes
+in your fork, as it needs to be hosted along with other HTML files in `docs` directory.
 
 To test the function deployed in dev stage use `index.html#dev`, otherwise it defaults to one in prod stage.
-
-You want to track `docs/config.js` along with any other changes in your fork, as it needs to be hosted along
-with other HTML files in `docs` directory.

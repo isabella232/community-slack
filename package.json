@@ -7,6 +7,6 @@
     "serverless-stack-output": "^0.2.3"
   },
   "scripts": {
-    "deploy": "serverless deploy && ./generate-page-config.sh"
+    "deploy": "serverless deploy"
   }
 }
