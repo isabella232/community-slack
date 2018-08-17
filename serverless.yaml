@@ -1,0 +1,32 @@
+service: community-slack
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  doInvite:
+    handler: handler.doInvite
+    events:
+      - http:
+          path: invite
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
+package:
+  exclude:
+    - 'node_modules/**'
+    - 'docs/**'
+    - 'README.md'
+    - 'LICENSE'
+    - '*.sh'
+    - 'package-lock.json'
+    - 'package.json'
