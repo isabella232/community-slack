@@ -24,13 +24,21 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: false
+plugins:
+  - serverless-stack-output
+
+custom:
+  output:
+    file: output-${opt:stage, self:provider.stage}.json
+
 package:
   exclude:
     - 'node_modules/**'
     - 'docs/**'
-    - 'README.md'
+    - '*.md'
     - 'LICENSE'
     - '*.sh'
     - '*.env'
     - 'package-lock.json'
     - 'package.json'
+    - '.vscode/**'
