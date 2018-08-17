@@ -1,6 +1,6 @@
 'use strict';
 
-const slack_team = 'weave-community';
+const slack_team = process.env['SLACK_TEAM'];;
 const slack_token = process.env['SLACK_TOKEN'];
 
 const https = require('https');
