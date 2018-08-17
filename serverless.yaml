@@ -29,7 +29,7 @@ plugins:
 
 custom:
   output:
-    file: output-${opt:stage, self:provider.stage}.json
+    file: .serverless/output-${opt:stage, self:provider.stage}.json
 
 package:
   exclude:
