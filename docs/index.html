@@ -60,12 +60,12 @@
       $.ajaxSetup({
         url: lambdaURL(),
         type: "POST",
-        // crossDomain: true,
+        crossDomain: true,
         dataType: "json",
         contentType: "application/json",
-        // xhrFields: {
-        //   withCredentials: true
-        // },
+        xhrFields: {
+          withCredentials: true
+        },
         success: function (response) {
           var resp = JSON.parse(response)
           if (resp.ok) {
