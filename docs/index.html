@@ -52,7 +52,7 @@
           url = AWS_LAMBDA_DEV_URL;
         }
         if (url === undefined) {
-          throw("neither dev nor prod URL is defined");
+          throw("URL is undefined");
         }
         return url;
       }
