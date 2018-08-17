@@ -6,6 +6,7 @@ provider:
   environment:
     SLACK_TEAM: ${env:SLACK_TEAM}
     SLACK_TOKEN: ${env:SLACK_TOKEN}
+    ALLOW_ORIGIN: ${env:ALLOW_ORIGIN}
 
 functions:
   doInvite:
@@ -15,7 +16,7 @@ functions:
           path: invite
           method: post
           cors:
-            origin: '*'
+            origin: ${env:ALLOW_ORIGIN}
             headers:
               - Content-Type
               - X-Amz-Date
