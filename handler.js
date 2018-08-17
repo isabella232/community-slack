@@ -31,7 +31,7 @@ module.exports.doInvite = (event, context, callback) => {
       const response = {
         statusCode: 200,
         headers: {
-          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': process.env['ALLOW_ORIGIN'],
           'Access-Control-Allow-Credentials': true,
         },
         body: JSON.stringify(responseBody),
