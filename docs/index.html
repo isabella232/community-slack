@@ -47,11 +47,10 @@
 
     $( document ).ready(function() {
       function lambdaURL() {
-        var url;
-        if (window.location.hash == "#dev") {
-          url=AWS_LAMBDA_DEV_URL;
+        var url = AWS_LAMBDA_PROD_URL;
+        if (window.location.hash === "#dev") {
+          url = AWS_LAMBDA_DEV_URL;
         }
-        url=AWS_LAMBDA_PROD_URL;
         if (url === undefined) {
           throw("neither dev nor prod URL is defined");
         }
