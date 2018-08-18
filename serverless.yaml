@@ -24,7 +24,8 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
-            allowCredentials: false
+            allowCredentials: true
+
 plugins:
   - serverless-stack-output
 
