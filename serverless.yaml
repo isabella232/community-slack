@@ -2,7 +2,7 @@ service: community-slack
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs12.x
   environment:
     SLACK_TEAM: ${env:SLACK_TEAM}
     SLACK_TOKEN: ${env:SLACK_TOKEN}
